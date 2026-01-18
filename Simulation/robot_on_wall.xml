@@ -1,0 +1,145 @@
+<mujoco model="robot">
+  <compiler angle="radian" autolimits="true"/>
+
+  <asset>
+    <mesh file="assets\robot\Waist.STL"/>
+    <mesh file="assets\robot\R_Hip_1.STL"/>
+    <mesh file="assets\robot\R_Hip_2.STL"/>
+    <mesh file="assets\robot\R_Femur.STL"/>
+    <mesh file="assets\robot\R_Tibia.STL"/>
+    <mesh file="assets\robot\L_Hip_1.STL"/>
+    <mesh file="assets\robot\L_Hip_2.STL"/>
+    <mesh file="assets\robot\L_Femur.STL"/>
+    <mesh file="assets\robot\L_Tibia.STL"/>
+    <mesh file="assets\robot\Torso.STL"/>
+    <mesh file="assets\robot\Chest.STL"/>
+    <mesh file="assets\robot\R_Shoulder.STL"/>
+    <mesh file="assets\robot\R_Upperarm.STL"/>
+    <mesh file="assets\robot\R_Lowerarm.STL"/>
+    <mesh file="assets\robot\R_Finger.STL"/>
+    <mesh file="assets\robot\L_Shoulder.STL"/>
+    <mesh file="assets\robot\L_Upperarm.STL"/>
+    <mesh file="assets\robot\L_Lowerarm.STL"/>
+    <mesh file="assets\robot\L_Finger.STL"/>
+  </asset>
+
+  <default>
+    <geom type="mesh" solref="0.004 1" rgba="0.8 0.8 0.8 1"/>
+    <joint range="-1.571 1.571" damping="1.084" armature="0.045" frictionloss="0.03"/>
+    <position kp="80" ctrlrange="-1.571 1.571" forcerange="-0.8 0.8"/>
+  </default>
+
+  <worldbody>
+    <body name="Waist" pos="0 -0.204 0.34" quat="0.7071 0 0 0.7071">
+      <inertial pos="0.000675 -4.791665e-09 0.246991" quat="1 0 0 0" mass="0.263389" diaginertia="0.000178 0.000111 0.000241"/>
+      <freejoint/>
+      <geom mesh="Waist"/>
+      <body name="R_Hip_1" pos="-0.0025 -0.04 0.222">
+        <inertial pos="-0.024192 0 -0.0177171" quat="1 0 0 0" mass="0.0324864" diaginertia="1.432987e-05 2.506009e-05 1.914315e-05"/>
+        <joint type="hinge" name="R_Hip_Yaw" pos="0 0 0" axis="0 0 -1"/>
+        <geom mesh="R_Hip_1"/>
+        <body name="R_Hip_2" pos="-0.038 0 -0.042">
+          <inertial pos="0.0409498 -0.00645015 -0.01" quat="1 0 0 0" mass="0.123946" diaginertia="3.006544e-05 3.251584e-05 2.392025e-05"/>
+          <joint type="hinge" name="R_Hip_Roll" pos="0 0 0" axis="-1 0 0"/>
+          <geom mesh="R_Hip_2"/>
+          <body name="R_Femur" pos="0.0574 -0.0374 -0.02" quat="0.985 0 -0.174 0"><!--"0.924 0 -0.383 0"-->
+            <inertial pos="0.0133711 -0.00959042 -0.0602765" quat="0.997358 0.00487096 -0.0724138 0.00297695" mass="0.0686885" diaginertia="2.74941e-05 2.3889e-05 1.11512e-05"/>
+            <joint type="hinge" name="R_Hip_Pitch" pos="0 0 0" axis="0 -1 0"/>
+            <geom mesh="R_Femur"/>
+            <body name="R_Tibia" pos="0.015 0.0149 -0.0775">
+              <inertial pos="-0.00568498 0.00344165 -0.0638605" quat="0.699452 0.103763 0.103763 0.699452" mass="0.0463986" diaginertia="6.10288e-05 3.95454e-05 3.44523e-05"/>
+              <joint type="hinge" name="R_Knee_Pitch" pos="0 0 0" axis="0 1 0"/>
+              <geom mesh="R_Tibia"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="L_Hip_1" pos="-0.0025 0.04 0.222">
+        <inertial pos="-0.024192 0 -0.0177171" quat="0.62917 0.322715 0.322715 0.62917" mass="0.0324864" diaginertia="2.50601e-05 2.42751e-05 9.1979e-06"/>
+        <joint type="hinge" name="L_Hip_Yaw" pos="0 0 0" axis="0 0 -1"/>
+        <geom mesh="L_Hip_1"/>
+        <body name="L_Hip_2" pos="-0.038 0 -0.042">
+          <inertial pos="0.0409498 0.00645015 -0.01" quat="0.825611 -0.0145841 -0.00501062 0.564029" mass="0.123946" diaginertia="3.29585e-05 2.96285e-05 2.39146e-05"/>
+          <joint type="hinge" name="L_Hip_Roll" pos="0 0 0" axis="-1 0 0"/>
+          <geom mesh="L_Hip_2"/>
+          <body name="L_Femur" pos="0.0574 0.0374 -0.02" quat="0.985 0 -0.174 0"><!--"0.924 0 -0.383 0"-->
+            <inertial pos="0.0133711 0.00959042 -0.0602765" quat="0.997358 0.00487096 -0.0724138 0.00297695" mass="0.0686885" diaginertia="2.74941e-05 2.3889e-05 1.11512e-05"/>
+            <joint type="hinge" name="L_Hip_Pitch" pos="0 0 0" axis="0 1 0"/>
+            <geom mesh="L_Femur"/>
+            <body name="L_Tibia" pos="0.015 0.0149 -0.0775">
+              <inertial pos="-0.00568498 0.00344165 -0.0638605" quat="0.699452 0.103763 0.103763 0.699452" mass="0.0463986" diaginertia="6.10288e-05 3.95454e-05 3.44523e-05"/>
+              <joint type="hinge" name="L_Knee_Pitch" pos="0 0 0" axis="0 -1 0"/>
+              <geom mesh="L_Tibia"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="Torso" pos="0.0025 0 0.2708">
+        <inertial pos="-0.0380488 6.0347e-09 0.0430269" quat="1 0 0 0" mass="0.302799" diaginertia="3.251305e-04 2.69608e-04 1.879436e-04"/>
+        <joint name="Torso_Yaw" pos="0 0 0" type="hinge" axis="0 0 1"/>
+        <geom mesh="Torso"/>
+        <body name="Chest" pos="-0.023 0 0.0785">
+          <inertial pos="0.029545 2.020228e-09 0.050443" quat="1 0 0 0" mass="0.226082" diaginertia="1.337382e-04 1.030822e-04 6.349694e-05"/>
+          <joint name="Chest_Roll" pos="0 0 0" type="hinge" axis="-1 0 0"/>
+          <geom mesh="Chest"/>
+          <body name="R_Shoulder" pos="0.0339 -0.0519 0.051" quat="0.7071 0 0 0.7071">
+            <inertial pos="0 -0.0230583 0.0112512" quat="1 0 0 0" mass="0.0305153" diaginertia="1.729398e-05 9.951904e-06 1.730445e-05"/>
+            <joint name="R_Shoulder_Pitch" pos="0 0 0" type="hinge" axis="0 -1 0"/>
+            <geom mesh="R_Shoulder"/>
+            <body name="R_Upper_Arm" pos="0 -0.047 0.0155" quat="0.7071 0 0 0.7071">
+              <inertial pos="2.53155e-03 -0.0196867 -0.0272403" quat="1 0 0 0" mass="0.0756393" diaginertia="3.634410e-05 1.430793e-05 2.984267e-05"/>
+              <joint name="R_Shoulder_Yaw" pos="0 0 0" type="hinge" axis="0 0 1"/>
+              <geom mesh="R_Upperarm"/>
+              <body name="R_Lowerarm" pos="0.0105 -0.071 -0.0369" quat="">
+                <inertial pos="-0.0245568 -0.0165856 -8.079435e-05" quat="1 0 0 0" mass="0.0708506" diaginertia="2.945241e-05 1.13803e-05 3.287405e-05"/>
+                <joint name="R_Elbow_Roll" pos="0 0 0" type="hinge" axis="1 0 0"/>
+                <geom mesh="R_Lowerarm" contype="2" conaffinity="2" condim="3"/>
+                <body name="R_Finger" pos="-0.0169 -0.051 0.0175">
+                  <inertial pos="-0.0025 -0.051 -0.0115" quat="1 0 0 0" mass="0.0035" diaginertia="2.942707e-06 6.215979e-07 2.335817e-06"/>
+                  <geom mesh="R_Finger" contype="2" conaffinity="2" condim="3"/>
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="L_Shoulder" pos="0.0339 0.0519 0.051" quat="0.924 0 -0.383 0">
+            <inertial pos="0 0.0230583 0.0112512" quat="1 0 0 0" mass="0.0305153" diaginertia="1.729398e-05 9.951904e-06 1.730445e-05"/>
+            <joint name="L_Shoulder_Pitch" pos="0 0 0" type="hinge" axis="0 1 0"/>
+            <geom mesh="L_Shoulder"/>
+            <body name="L_Upper_Arm" pos="0 0.047 0.0155" quat="-0.7071 0 0 0.7071">
+              <inertial pos="2.53155e-03 0.0196867 -0.0272403" quat="1 0 0 0" mass="0.0756393" diaginertia="3.634410e-05 1.430793e-05 2.984267e-05"/>
+              <joint name="L_Shoulder_Yaw" pos="0 0 0" type="hinge" axis="0 0 1"/>
+              <geom mesh="L_Upperarm"/>
+              <body name="L_Lowerarm" pos="0.0105 0.071 -0.0369">
+                <inertial pos="-0.0245568 0.0165856 -8.079435e-05" quat="1 0 0 0" mass="0.0708506" diaginertia="2.945241e-05 1.13803e-05 3.287405e-05"/>
+                <joint name="L_Elbow_Roll" pos="0 0 0" type="hinge" axis="1 0 0"/>
+                <geom mesh="L_Lowerarm" contype="2" conaffinity="2" condim="3"/>
+                <body name="L_Finger" pos="-0.0169 0.051 0.0175">
+                  <inertial pos="-0.0025 0.051 -0.0115" quat="1 0 0 0" mass="0.0035" diaginertia="2.942707e-06 6.215979e-07 2.335817e-06"/>
+                  <geom mesh="L_Finger" contype="2" conaffinity="2" condim="3"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position joint="R_Hip_Yaw"/>         <!--00-->
+    <position joint="R_Hip_Roll"/>        <!--01-->
+    <position joint="R_Hip_Pitch"/>       <!--02-->
+    <position joint="R_Knee_Pitch"/>      <!--03-->
+    <position joint="L_Hip_Yaw"/>         <!--04-->
+    <position joint="L_Hip_Roll"/>        <!--05-->
+    <position joint="L_Hip_Pitch"/>       <!--06-->
+    <position joint="L_Knee_Pitch"/>      <!--07-->
+    <position joint="Torso_Yaw"/>         <!--08-->
+    <position joint="Chest_Roll"/>        <!--09-->
+    <position joint="R_Shoulder_Pitch"/>  <!--10-->
+    <position joint="R_Shoulder_Yaw"/>    <!--11-->
+    <position joint="R_Elbow_Roll"/>      <!--12-->
+    <position joint="L_Shoulder_Pitch"/>  <!--13-->
+    <position joint="L_Shoulder_Yaw"/>    <!--14-->
+    <position joint="L_Elbow_Roll"/>      <!--15-->
+  </actuator>
+</mujoco>
