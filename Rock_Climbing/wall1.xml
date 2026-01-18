@@ -1,0 +1,13 @@
+<mujoco model="wall">
+  <compiler angle="radian" meshdir="assets/wall/" texturedir="assets/wall/"/>
+
+  <asset>
+    <texture name="wall" file="wall_color.png" type="2d"/>
+    <material name="wall" texture="wall" texuniform="true"/>
+    <mesh name="hold" file="Hold_Screw_V1_Rework.STL" scale="0.001 0.001 0.001"/>
+  </asset>
+  <worldbody>
+    <geom name="wall" size="1 2 0.1" type="plane" material="wall" pos="0.0 0.0 2" quat="0.7071 0.7071 0 0" contype="2" conaffinity="2" condim="3"/>
+    <body name="hold1" pos="0.045 0 0.3"
+  </worldbody>
+</mujoco>
